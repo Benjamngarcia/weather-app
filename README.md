@@ -1,6 +1,7 @@
 # Weather App ⛅
 Simple weather application developed with the objective of implementing basic Typescript knowledge.  
-In this project we will work with a search field to type the name of the city you want to visualize and also with a button that will request access to your location to show the weather of your current location. 
+In this project we will work with a search field to type the name of the city you want to visualize and also with a button that will request access to your location to show the weather of your current location.  
+<img src="./public/preview-desktop-dm.png" />
 ## Start 🚀
 ```
 git clone https://github.com/Benjamngarcia/weather-app.git
