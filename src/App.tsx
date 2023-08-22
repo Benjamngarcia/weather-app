@@ -21,9 +21,6 @@ function App() {
   const [forecastInfo, setForecastInfo] = useState<ForecastData | null>(null);
   const [darkMode, setDarkMode] = useState<boolean>(initialStateDarkMode);
 
-  // Combine weather and forecast information for easy access
-  let infoRequestWeather: InfoRequestData = { weatherInfo, forecastInfo };
-
   // Function to fetch weather and forecast data
   const getWeather = async (city: string | { lat: number, lon: number }) => {
     localStorage.setItem("city", JSON.stringify(city));
@@ -33,8 +30,17 @@ function App() {
     setForecastInfo(forecastReq);
   };
 
+  // Combine weather and forecast information for easy access
+  let infoRequestWeather: InfoRequestData = {
+    infoRequestWeather: {
+      weatherInfo,
+      forecastInfo,
+    },
+    getWeather,
+  };
+
   // Memoized weather data to avoid unnecessary recalculations
-  const weatherData = useMemo(() => ({
+  useMemo(() => ({
     infoRequestWeather,
     getWeather,
   }), [weatherInfo]);
@@ -59,7 +65,7 @@ function App() {
 
   // App structure and routing
   return (
-    <WeatherContext.Provider value={weatherData}>
+    <WeatherContext.Provider value={infoRequestWeather}>
       <BrowserRouter>
         <MainLayout>
           <Routes>
