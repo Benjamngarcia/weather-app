@@ -25,7 +25,7 @@ export const ExtendedForecast = () => {
       <div className="flex flex-row  overflow-x-scroll gap-2">
         {avgForecast.map((day, index) => (
           // Display forecast information for each day
-          <div className="mx-auto px-3 shadow-sm text-center rounded" key={index}>
+          <div className="mx-auto px-3 shadow-sm text-center rounded" key={index} data-testid="forecast-day">
             <span className="font-semibold text-md text-gray-500 dark:text-gray-300">{day.dt_txt}</span>
             <div className="flex text-gray-500 dark:text-gray-300">
               <IconDropletFilled className="text-sky-500" />
