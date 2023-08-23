@@ -1,12 +1,12 @@
 import { useState, useMemo, useEffect } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { MainLayout } from "./layout/MainLayout";
-import { Header } from "./components/Header";
-import { InputSearch } from "./components/InputSearch";
-import { CurrentWeather } from './components/CurrentWeather';
-import { ExtendedForecast } from './components/ExtendedForecast';
-import { Footer } from './components/Footer';
-import { PageNotFound } from "./components/PageNotFound";
+import { Header } from "./components/weatherComponent/Header";
+import { InputSearch } from "./components/weatherComponent/InputSearch";
+import { CurrentWeather } from './components/weatherComponent/CurrentWeather';
+import { ExtendedForecast } from './components/weatherComponent/ExtendedForecast';
+import { Footer } from './components/generalComponents/Footer';
+import { PageNotFound } from "./components/generalComponents/PageNotFound";
 import { getCurrentWeather, getCurrentForecast } from "./api/currentWeather";
 import WeatherContext from "./context/WeatherContext";
 import { WeatherDataResponse, ForecastDataResponse, InfoResponseData, ErrorResponse } from './types/weather_types';

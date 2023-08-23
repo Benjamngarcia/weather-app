@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IconSearch } from '@tabler/icons-react';
-import useWeather from "../hooks/useWeather";
+import useWeather from "../../hooks/useWeather";
 
 // Component for search input
 export const InputSearch = () => {

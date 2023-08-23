@@ -1,13 +1,13 @@
 import React from 'react';
-import { CloudyIcon } from './weatherIcons/CloudyIcon';
-import { HazeIcon } from './weatherIcons/HazeIcon';
-import { HeavyRainIcon } from './weatherIcons/HeavyRainIcon';
-import { PartlyCloudyIcon } from './weatherIcons/PartlyCloudyIcon';
-import { RainIcon } from './weatherIcons/RainIcon';
-import { SleetIcon } from './weatherIcons/SleetIcon';
-import { SnowIcon } from './weatherIcons/SnowIcon';
-import { SunnyIcon } from './weatherIcons/SunnyIcon';
-import { ThunderIcon } from './weatherIcons/ThunderIcon';
+import { CloudyIcon } from '../weatherIcons/CloudyIcon';
+import { HazeIcon } from '../weatherIcons/HazeIcon';
+import { HeavyRainIcon } from '../weatherIcons/HeavyRainIcon';
+import { PartlyCloudyIcon } from '../weatherIcons/PartlyCloudyIcon';
+import { RainIcon } from '../weatherIcons/RainIcon';
+import { SleetIcon } from '../weatherIcons/SleetIcon';
+import { SnowIcon } from '../weatherIcons/SnowIcon';
+import { SunnyIcon } from '../weatherIcons/SunnyIcon';
+import { ThunderIcon } from '../weatherIcons/ThunderIcon';
 
 // Props interface for WeatherIcon component
 interface IWeatherIconProps {

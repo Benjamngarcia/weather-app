@@ -1,5 +1,5 @@
 import { IconCurrentLocation, IconSunHigh, IconMoon } from '@tabler/icons-react';
-import useWeather from '../hooks/useWeather';
+import useWeather from '../../hooks/useWeather';
 
 // Props interface for the Header component
 type DarkModeProps = {

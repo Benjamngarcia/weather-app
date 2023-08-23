@@ -1,5 +1,5 @@
-import useWeather from '../hooks/useWeather';
-import { forecastAverage } from '../utils/forecastAverage';
+import useWeather from '../../hooks/useWeather';
+import { forecastAverage } from '../../utils/forecastAverage';
 import { IconDropletFilled } from '@tabler/icons-react';
 import { WeatherIcon } from './WeatherIcon';
 
