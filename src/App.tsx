@@ -9,7 +9,7 @@ import { Footer } from './components/Footer';
 import { PageNotFound } from "./components/PageNotFound";
 import { getCurrentWeather, getCurrentForecast } from "./api/currentWeather";
 import WeatherContext from "./context/WeatherContext";
-import { WeatherData, ForecastData, InfoRequestData } from './types/weather_types';
+import { WeatherDataResponse, ForecastDataResponse, InfoResponseData, ErrorResponse } from './types/weather_types';
 
 // Initial state values retrieved from localStorage
 const initialStateDarkMode: boolean = localStorage.getItem("theme") === "dark";
@@ -17,8 +17,8 @@ const initialStateCity: string | { lat: number, lon: number } = JSON.parse(local
 
 function App() {
   // State variables for weather information, forecast information, and dark mode
-  const [weatherInfo, setWeatherInfo] = useState<WeatherData | null>(null);
-  const [forecastInfo, setForecastInfo] = useState<ForecastData | null>(null);
+  const [weatherInfo, setWeatherInfo] = useState<WeatherDataResponse | ErrorResponse | null>(null);
+  const [forecastInfo, setForecastInfo] = useState<ForecastDataResponse | ErrorResponse | null>(null);
   const [darkMode, setDarkMode] = useState<boolean>(initialStateDarkMode);
 
   // Function to fetch weather and forecast data
@@ -31,7 +31,7 @@ function App() {
   };
 
   // Combine weather and forecast information for easy access
-  let infoRequestWeather: InfoRequestData = {
+  let infoRequestWeather: InfoResponseData = {
     infoRequestWeather: {
       weatherInfo,
       forecastInfo,

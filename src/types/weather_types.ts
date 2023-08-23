@@ -1,4 +1,15 @@
-export type WeatherData = {
+/* type to save context data for request weather and 
+forecast info */
+export type InfoResponseData = {
+  infoRequestWeather: {
+    weatherInfo: WeatherDataResponse | ErrorResponse | null;
+    forecastInfo: ForecastDataResponse | ErrorResponse | null;
+  };
+  getWeather: (city: string | { lat: number, lon: number }) => void;
+}
+
+// type for api data
+export type WeatherDataResponse = {
   coord: {
     lon: number;
     lat: number;
@@ -38,17 +49,9 @@ export type WeatherData = {
   id: number;
   name: string;
   cod: number;
-  response: ErrorResponse;
 }
 
-export type ErrorResponse = {
-  data: {
-    cod: string;
-    message: string;
-  };
-}
-
-export type ForecastData = {
+export type ForecastDataResponse = {
   list: {
     dt: number;
     dt_txt: string;
@@ -88,20 +91,36 @@ export type ForecastData = {
       lat: number;
     };
     country: string;
+    population: number;
+    timezone: number;
+    sunrise: number;
+    sunset: number;
   };
   cnt: number;
   cod: string;
   message: number;
 }
 
-export type InfoRequestData = {
-  infoRequestWeather: {
-    weatherInfo: WeatherData | null;
-    forecastInfo: ForecastData | null;
-  };
-  getWeather: (city: string | { lat: number, lon: number }) => void;
+export type ErrorResponse = {
+  code: string;
+  config?: {}
+  message: string;
+  name: string;
+  request: {};
+  response: {
+    data: {
+      cod: string;
+      message: string;
+    };
+    headers: {};
+    request: {};
+    status: number;
+    statusText: string;
+    stack?: string;
+  }
 }
 
+// used only for get the forecast average data
 export type WeatherListData = {
   dt_txt: string;
   main: {

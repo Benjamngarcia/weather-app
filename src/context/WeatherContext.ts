@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { InfoRequestData } from "../types/weather_types";
+import { InfoResponseData } from "../types/weather_types";
 
 
 // Initial weatherInfo object structure with empty placeholders
@@ -12,6 +12,6 @@ const weatherInfo = {
 }
 
 // Create a React context using the initial weatherInfo
-const WeatherContext = createContext<InfoRequestData>(weatherInfo);
+const WeatherContext = createContext<InfoResponseData>(weatherInfo);
 
 export default WeatherContext;

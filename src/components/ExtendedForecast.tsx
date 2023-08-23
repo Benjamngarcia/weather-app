@@ -7,8 +7,12 @@ export const ExtendedForecast = () => {
   const { infoRequestWeather } = useWeather();
   const { forecastInfo } = infoRequestWeather;
 
+  if(forecastInfo === null) return null;
+
+  const isRequestSuccess = 'list' in forecastInfo;
+
   // Check if forecastInfo.list exists before using it
-  if (!forecastInfo?.list) {
+  if (!isRequestSuccess) {
     return null; // Return nothing if forecast data is unavailable
   }
 

@@ -1,5 +1,5 @@
 import { useContext } from "react";
 import WeatherContext from "../context/WeatherContext";
-import { InfoRequestData } from '../types/weather_types';
+import { InfoResponseData } from '../types/weather_types';
 
-export default () : InfoRequestData => useContext(WeatherContext);
+export default () : InfoResponseData => useContext(WeatherContext);
