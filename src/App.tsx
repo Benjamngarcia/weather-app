@@ -20,14 +20,17 @@ function App() {
   const [weatherInfo, setWeatherInfo] = useState<WeatherDataResponse | ErrorResponse | null>(null);
   const [forecastInfo, setForecastInfo] = useState<ForecastDataResponse | ErrorResponse | null>(null);
   const [darkMode, setDarkMode] = useState<boolean>(initialStateDarkMode);
+  const [loading, setLoading] = useState<boolean>(false);
 
   // Function to fetch weather and forecast data
   const getWeather = async (city: string | { lat: number, lon: number }) => {
+    setLoading(true);
     localStorage.setItem("city", JSON.stringify(city));
     let weatherReq = await getCurrentWeather({ city, units: "metric" });
     let forecastReq = await getCurrentForecast({ city, units: "metric" });
     setWeatherInfo(weatherReq);
     setForecastInfo(forecastReq);
+    setLoading(false);
   };
 
   // Combine weather and forecast information for easy access
@@ -37,6 +40,7 @@ function App() {
       forecastInfo,
     },
     getWeather,
+    loading,
   };
 
   // Memoized weather data to avoid unnecessary recalculations
@@ -59,7 +63,9 @@ function App() {
   // Effect to fetch weather data when the app starts
   useEffect(() => {
     if (initialStateCity && Object.keys(initialStateCity).length > 0) {
+      setLoading(true);
       getWeather(initialStateCity);
+      setLoading(false);
     }
   }, []);
 
@@ -74,7 +80,7 @@ function App() {
                 <Header darkMode={darkMode} setDarkMode={setDarkMode} />
                 <InputSearch />
                 <CurrentWeather />
-                {forecastInfo && <ExtendedForecast />}
+                {forecastInfo && !loading && <ExtendedForecast />}
                 <Footer />
               </>
             } />

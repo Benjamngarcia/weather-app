@@ -1,6 +1,7 @@
 /* type to save context data for request weather and 
 forecast info */
 export type InfoResponseData = {
+  loading?: boolean;
   infoRequestWeather: {
     weatherInfo: WeatherDataResponse | ErrorResponse | null;
     forecastInfo: ForecastDataResponse | ErrorResponse | null;
